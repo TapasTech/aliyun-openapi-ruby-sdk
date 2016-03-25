@@ -1,6 +1,9 @@
 ---
 :cn-hangzhou:
   :region_ids:
+  - cn-beijing-inner
+  - cn-shanghai-inner
+  - cn-shenzhen-inner
   - cn-beijing
   - cn-hangzhou
   - cn-hangzhou-d
@@ -10,12 +13,28 @@
   - us-west-1
   - cn-shanghai-et2-test01
   - ap-southeast-1
+  - us-east-1
+  - cn-qingdao-cm9
   :products:
+    :ams: ams.aliyuncs.com
+    :httpdns: httpdns-api.aliyuncs.com
+    :cmssitemonitor: sitemonitor.aliyuncs.com
+    :kms: kms.daily.alibaba.net
+    :ess: ess.aliyuncs.com
+    :iot: iot.aliyuncs.com
+    :commondriver: common.driver.aliyuncs.com
+    :dds: mongodb.aliyuncs.com
+    :location-inner: location-inner.aliyuncs.com
+    :oceanbase: oceanbase.aliyuncs.com
+    :cs: cs.aliyuncs.com
+    :green: green.aliyuncs.com
+    :mts: mts.cn-hangzhou.aliyuncs.com
+    :dm: dm.aliyuncs.com
     :ros: ros.aliyuncs.com
     :bss: bss.aliyuncs.com
     :ecs: ecs-cn-hangzhou.aliyuncs.com
     :oms: oms.aliyuncs.com
-    :rds: rds.aliyuncs.com
+    :rds: rds-cn-hangzhou.aliyuncs.com
     :slb: slb-pop.aliyuncs.com
     :oss: oss-cn-hangzhou.aliyuncs.com
     :ossadmin: oss-admin.aliyuncs.com
@@ -44,17 +63,30 @@
     :push: cloudpush.aliyuncs.com
     :emr: emr.aliyuncs.com
     :cdn: cdn.aliyuncs.com
+    :cos: cos.aliyuncs.com
+    :cf: cf.aliyuncs.com
 :cn-shenzhen:
   :region_ids:
   - cn-shenzhen
   :products:
+    :cmssitemonitor: sitemonitor.aliyuncs.com
+    :kms: kms.daily.alibaba.net
+    :ess: ess.aliyuncs.com
+    :iot: iot.aliyuncs.com
+    :commondriver: common.driver.aliyuncs.com
+    :dds: mongodb.aliyuncs.com
+    :location-inner: location-inner.aliyuncs.com
+    :oceanbase: oceanbase.aliyuncs.com
+    :cs: cs.aliyuncs.com
+    :green: green.aliyuncs.com
+    :dm: dm.aliyuncs.com
     :ros: ros.aliyuncs.com
     :batchcompute: batchcompute.cn-shenzhen.aliyuncs.com
     :bss: bss.aliyuncs.com
     :alert: alert.aliyuncs.com
     :ecs: ecs-cn-hangzhou.aliyuncs.com
     :oms: oms.aliyuncs.com
-    :rds: rds.aliyuncs.com
+    :rds: rds-cn-hangzhou.aliyuncs.com
     :slb: slb-pop.aliyuncs.com
     :oss: oss-cn-hangzhou.aliyuncs.com
     :ossadmin: oss-admin.aliyuncs.com
@@ -82,16 +114,31 @@
     :push: cloudpush.aliyuncs.com
     :emr: emr.aliyuncs.com
     :cdn: cdn.aliyuncs.com
+    :cos: cos.aliyuncs.com
+    :cf: cf.aliyuncs.com
 :cn-qingdao:
   :region_ids:
   - cn-qingdao
   :products:
+    :ubsms: ubsms.aliyuncs.com
+    :ubsms-inner: ubsms-inner.aliyuncs.com
+    :cmssitemonitor: sitemonitor.aliyuncs.com
+    :kms: kms.daily.alibaba.net
+    :ess: ess.aliyuncs.com
+    :iot: iot.aliyuncs.com
+    :commondriver: common.driver.aliyuncs.com
+    :dds: mongodb.aliyuncs.com
+    :location-inner: location-inner.aliyuncs.com
+    :oceanbase: oceanbase.aliyuncs.com
+    :cs: cs.aliyuncs.com
+    :green: green.aliyuncs.com
+    :dm: dm.aliyuncs.com
     :ros: ros.aliyuncs.com
     :batchcompute: batchcompute.cn-qingdao.aliyuncs.com
     :bss: bss.aliyuncs.com
     :ecs: ecs-cn-hangzhou.aliyuncs.com
     :oms: oms.aliyuncs.com
-    :rds: rds.aliyuncs.com
+    :rds: rds-cn-hangzhou.aliyuncs.com
     :slb: slb-pop.aliyuncs.com
     :oss: oss-cn-hangzhou.aliyuncs.com
     :ossadmin: oss-admin.aliyuncs.com
@@ -107,12 +154,10 @@
     :ots: ots-pop.aliyuncs.com
     :dqs: dqs.aliyuncs.com
     :location: location.aliyuncs.com
-    :ubsms: ubsms.aliyuncs.com
     :drc: drc.aliyuncs.com
     :ons: ons.aliyuncs.com
     :aas: aas.aliyuncs.com
     :ace: ace.cn-hangzhou.aliyuncs.com
-    :ubsms-inner: ubsms-inner.aliyuncs.com
     :dts: dts.aliyuncs.com
     :r-kvstore: r-kvstore-cn-hangzhou.aliyuncs.com
     :pts: pts.aliyuncs.com
@@ -120,3 +165,5 @@
     :push: cloudpush.aliyuncs.com
     :emr: emr.aliyuncs.com
     :cdn: cdn.aliyuncs.com
+    :cos: cos.aliyuncs.com
+    :cf: cf.aliyuncs.com
