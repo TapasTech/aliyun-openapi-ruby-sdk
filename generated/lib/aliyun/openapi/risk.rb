@@ -1,0 +1,10 @@
+require 'aliyun/openapi'
+
+require 'aliyun/openapi/risk/2015-03-23/validate_verify_code'
+require 'aliyun/openapi/risk/2015-03-23/send_verify_code'
+require 'aliyun/openapi/risk/2015-03-23/find_risk'
+require 'aliyun/openapi/risk/2015-08-04/find_risk'
+require 'aliyun/openapi/risk/2015-08-04/write_ussc'
+require 'aliyun/openapi/risk/2015-08-04/validate_verify_code'
+require 'aliyun/openapi/risk/2015-08-04/send_verify_code'
+require 'aliyun/openapi/risk/2015-08-04/query_name_list'

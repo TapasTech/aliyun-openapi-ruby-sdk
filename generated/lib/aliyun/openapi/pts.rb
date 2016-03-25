@@ -1,0 +1,13 @@
+require 'aliyun/openapi'
+
+require 'aliyun/openapi/pts/2015-08-01/set_scenario_status'
+require 'aliyun/openapi/pts/2015-08-01/send_wang_wang'
+require 'aliyun/openapi/pts/2015-08-01/report_vuser'
+require 'aliyun/openapi/pts/2015-08-01/report_test_sample'
+require 'aliyun/openapi/pts/2015-08-01/report_log_sample'
+require 'aliyun/openapi/pts/2015-08-01/get_tasks'
+require 'aliyun/openapi/pts/2015-08-01/get_script'
+require 'aliyun/openapi/pts/2015-08-01/get_key_secret'
+require 'aliyun/openapi/pts/2015-08-01/create_transaction'
+require 'aliyun/openapi/pts/2015-08-01/stop_task'
+require 'aliyun/openapi/pts/2015-08-01/set_task_status'
