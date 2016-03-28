@@ -1,6 +1,8 @@
 require 'aliyun/openapi/core'
 require 'aliyun/openapi/version'
 require 'faraday'
+require 'multi_xml'
+require 'faraday_middleware'
 
 module Aliyun
   module Openapi
