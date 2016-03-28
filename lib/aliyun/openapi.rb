@@ -1,5 +1,6 @@
 require 'aliyun/openapi/core'
 require 'aliyun/openapi/version'
+require 'faraday'
 
 module Aliyun
   module Openapi
