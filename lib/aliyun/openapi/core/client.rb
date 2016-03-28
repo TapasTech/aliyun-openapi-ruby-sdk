@@ -38,8 +38,8 @@ module Aliyun
               end
               # connection.use FaradayMiddleware::RaiseHttpException
               # connection.use FaradayMiddleware::LoudLogger if loud_logger
-              adapter = Openapi.config.adapter || :default_adapter
-              connection.adapter("::Faraday::#{adapter}".constantize)
+              adapter = Openapi.config.adapter || :NetHttp
+              connection.use "::Faraday::Adapter::#{adapter}".constantize
             end
           end
 
