@@ -9,7 +9,7 @@
       {
         "required":"true",
         "tagName":"content",
-        "tagPosition":"Query",
+        "tagPosition":"Domain",
         "type":"String",
         "valueSwitch":{
 
@@ -38,5 +38,5 @@
       }
     ]
   },
-  "version":"2015-12-09"
+  "version":"2016-02-24"
 }

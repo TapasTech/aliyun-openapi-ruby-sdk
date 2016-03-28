@@ -7,7 +7,7 @@ module Aliyun
     END_POINTS_FILE = File.expand_path('../../endpoints.yml', __FILE__)
 
     class Configuration #< OpenStruct
-      attr_accessor :server_address, :ssl_required, :access_key_id, :access_key_secret, :format, :region
+      attr_accessor :server_address, :ssl_required, :access_key_id, :access_key_secret, :format, :region, :adapter
       attr_reader :end_points
       def initialize
         @end_points = YAML.parse( File.read(END_POINTS_FILE) ).transform

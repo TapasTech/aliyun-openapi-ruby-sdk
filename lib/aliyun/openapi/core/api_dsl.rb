@@ -121,6 +121,7 @@ module Aliyun
           @params_types = {}
           @methods = []
           @pattern = nil
+          @signature_style = :rpc
         end
 
         def param(name, type, required, options= {})
@@ -131,6 +132,10 @@ module Aliyun
           @methods = methods.sort.map { |v| v.downcase.to_sym } # GET over POST
         end
 
+        def signature_style=(style)
+          @signature_style = style.to_sym
+        end
+
         def pattern=(pattern)
           @pattern = pattern.gsub(/\[/, '%{').gsub(/\]/, '}') # build a ruby format syntax
         end
@@ -138,12 +143,25 @@ module Aliyun
         def exec_call(params={})
           # validate params
           validate_params(params)
-          conn = Client.build(self, build_url(params))
+          opts = {signature_style: @signature_style}
+
+          if @signature_style == :roa
+            opts[:canonicalized_query] = canonicalized_query params
+            opts[:domain_parameters] = Hash[filter_params(params, params_by_type(:domain)).map { |k, v| [k.to_s, v] }]
+            opts[:version] = version.to_s
+          end
+
+          conn = Client.build(self, build_url(params),  opts)
 
           method = @methods.first || :get
+
           conn.send(method) do |request|
             body_prams = params_by_type(:body)
-            request.body = filter_params(params, body_prams) if !body_prams.nil? && !body_prams.empty?
+            body_prams.merge!(params_by_type(:domain)) unless params_by_type(:domain).empty?
+
+            if !body_prams.nil? && !body_prams.empty?
+              request.body = JSON.dump(Hash[filter_params(params, body_prams).map { |k, v| [k.to_s, v] }])
+            end
           end
         end
 
@@ -161,7 +179,7 @@ module Aliyun
 
         def build_url(params = {})
           url = @pattern ? @pattern % filter_params(params, params_by_type(:path)) : ''
-          "#{url}?#{::Faraday::Utils.build_query(action_query.merge(filter_params(params, params_by_type(:query))))}"
+          "#{url}?#{::Faraday::Utils.build_query(filter_params(params, params_by_type(:query)))}"
         end
 
         private
@@ -174,12 +192,41 @@ module Aliyun
         def filter_params(params, filter)
           params.select { |k, v| filter[k] }
         end
-
         # could be :query, :path, :body
         def params_by_type(type)
           @params_types[type] ||= @params.select do |k, v|
             @params[k][:options]['tagPosition'] == type.to_s.capitalize
           end
+        end
+
+        def expand_path(params = {})
+          return nil if @pattern.nil?
+          hash = filter_params(params, params_by_type(:path))
+          puts 222
+          puts hash
+          hash = {} if hash.nil?
+          @pattern.gsub(/\[.*?\]/) { |s| hash[s[1...-1]] }
+        end
+
+        def canonicalized_query(params = {})
+          path = expand_path(params).to_s
+
+          query = filter_params(params, params_by_type(:query))
+          puts 111
+          puts query
+          a = []
+          query.each { |k, v|
+            v = v[0] if (v.is_a? Array)
+            a.push([k.to_s, v])
+          }
+          a.sort_by! { |i| i[0] }
+          a.map! { |i|
+              return i[0] if i[1].to_s.empty?
+              i[0] + '=' + i[1]
+          }
+          s = a.join('&')
+
+          s.empty? ? path : (path + '?' + s)
         end
 
         def validate_params(params)
